@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 1000px;
+  background-color: antiquewhite;
+
+  //   #selectProducts {
+  //     margin-left: 750px;
+  //   }
+
+  div.productsSelect {
+    top: 70px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    div.selects {
+      width: 15%;
+      height: 100%;
+      border: 5px solid black;
+      border-color: blue;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      top: 70px;
+      z-index: 0;
+      select {
+        margin-top: 0.5rem;
+      }
+      #searhProducts {
+        margin-top: 0.5rem;
+      }
+      #limit {
+        margin-top: 0.5rem;
+      }
+    }
+
+    div.items {
+      top: 70px;
+      width: 80%;
+      height: 100%;
+      border: 5px solid black;
+      border-color: red;
+      position: relative;
+
+      div.accordion {
+        margin-left: 2.5rem;
+        height: 100%;
+        width: 95%;
+        border: 5px solid black;
+        border-color: purple;
+        overflow: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        ul.pagination {
+          margin-bottom: 0.5rem;
+        }
+        table {
+          word-wrap: break-word;
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
+  nav.navbar {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    z-index: 10;
+    #navbarSupportedContent {
+      #navUl {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        #nav-productsSelect {
+          margin-left: 750px;
+        }
+      }
+    }
+  }
+  div.createProduct {
+    top: 70px;
+    width: 100%;
+    height: 100%;
+    div.container {
+      width: 100%;
+      height: 100%;
+      border: 5px solid black;
+      border-color: blue;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      top: 70px;
+      #reset {
+        width: 7.5%;
+        height: 38px;
+        font-size: 0.75rem;
+        background-color: gray;
+        margin-bottom: 0.5rem;
+      }
+    }
+    div.category-check {
+      display: flex;
+      div.form-check {
+        margin: 0.5rem;
+      }
+    }
+    #productImageUrlLable {
+      margin-top: 0.5rem;
+    }
+    div.form-text {
+      color: red;
+    }
+    div.create-success {
+      margin-top: 0.5rem;
+      color: green;
+    }
+    div.create-failed {
+      color: red;
+    }
+  }
+}
