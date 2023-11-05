@@ -47,6 +47,15 @@
                 >新增商品</a
               >
             </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                id="nav-updateProduct"
+                href="#updateProduct"
+                >修改商品</a
+              >
+            </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -241,6 +250,132 @@
           </div>
           <div class="create-failed" style="display: none">
             <p>創建失敗!!</p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="updateProduct" style="display: none">
+      <div class="container">
+        <button type="submit" class="btn btn-primary" id="reset-update">
+          重置選項
+        </button>
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">商品編號</label>
+            <input
+              type="number"
+              class="form-control"
+              required="required"
+              id="productId"
+              aria-describedby="productIdHelp"
+            />
+            <div id="productIdHelp" class="form-text">不可空白</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">商品名稱</label>
+            <input
+              type="text"
+              class="form-control"
+              required="required"
+              id="productName-update"
+              aria-describedby="productNameHelp"
+            />
+            <div id="productNameHelp" class="form-text">修改商品不可空白</div>
+          </div>
+          <div class="category-check">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="car-check"
+                checked
+              />
+              <label class="form-check-label" for="car-check"> 車子 </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="food-check"
+              />
+              <label class="form-check-label" for="food-check"> 食物 </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="book-check"
+              />
+              <label class="form-check-label" for="book-check"> 書籍 </label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="productImageUrl" class="form-label">商品圖片網址</label>
+            <input
+              type="text"
+              class="form-control"
+              id="productImageUrl-update"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="productPrice" class="form-label">商品價格</label>
+            <input
+              type="number"
+              class="form-control"
+              required="required"
+              min="1"
+              id="productPrice-update"
+              aria-describedby="productPriceHelp"
+            />
+            <div id="productPriceHelp" class="form-text">修改商品不可空白</div>
+          </div>
+          <div class="mb-3">
+            <label for="productStock" class="form-label">商品庫存</label>
+            <input
+              type="number"
+              class="form-control"
+              required="required"
+              min="1"
+              id="productStock-update"
+              aria-describedby="productStockHelp"
+            />
+            <div id="productStockHelp" class="form-text">修改商品不可空白</div>
+          </div>
+          <div class="mb-3">
+            <label for="productDescription" class="form-label">商品描述</label>
+            <textarea
+              class="form-control"
+              id="productDescription-update"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="updateProduct-btn-container">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="updateProductSubmit"
+            >
+              Update
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="updateProductDelete"
+            >
+              Delete
+            </button>
+          </div>
+          <div class="update-success" style="display: none">
+            <p>修改成功!!</p>
+          </div>
+          <div class="update-failed" style="display: none">
+            <p>修改失敗!!</p>
+          </div>
+          <div class="delete-success" style="display: none">
+            <p>刪除成功!!</p>
           </div>
         </form>
       </div>

@@ -103,6 +103,7 @@ body {
         margin-bottom: 0.5rem;
       }
     }
+
     div.category-check {
       display: flex;
       div.form-check {
@@ -121,6 +122,58 @@ body {
     }
     div.create-failed {
       color: red;
+    }
+  }
+  div.updateProduct {
+    top: 70px;
+    width: 100%;
+    height: 100%;
+    div.container {
+      width: 100%;
+      height: 100%;
+      border: 5px solid black;
+      border-color: blue;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      top: 70px;
+      #reset-update {
+        width: 7.5%;
+        height: 38px;
+        font-size: 0.75rem;
+        background-color: gray;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    div.category-check {
+      display: flex;
+      div.form-check {
+        margin: 0.5rem;
+      }
+    }
+    #productImageUrlLable {
+      margin-top: 0.5rem;
+    }
+    div.form-text {
+      color: red;
+    }
+    div.update-success {
+      margin-top: 0.5rem;
+      color: green;
+    }
+    div.update-failed {
+      color: red;
+    }
+    div.delete-success {
+      color: green;
+    }
+    div.updateProduct-btn-container {
+      display: flex;
+      #updateProductDelete {
+        background-color: red;
+        margin-left: 0.5rem;
+      }
     }
   }
 }
