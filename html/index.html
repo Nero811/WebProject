@@ -88,7 +88,57 @@
           </ul>
         </div>
       </div>
+      <div class="users">
+        <button type="button" class="btn btn-outline-info" id="login">
+          Login
+        </button>
+        <button type="button" class="btn btn-outline-info" id="registry">
+          註冊
+        </button>
+      </div>
     </nav>
+    <dialog id="user-login-Modal">
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="InputEmail"
+            aria-describedby="emailHelp"
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="InputPassword" />
+        </div>
+        <div class="mb-3 form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="exampleCheck1"
+            onclick="displayPassword()"
+          />
+          <label
+            class="form-check-label"
+            for="exampleCheck1"
+            id="display-password"
+            >顯示密碼</label
+          >
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit">
+          Submit
+        </button>
+        <button type="submit" class="btn btn-primary" id="cancle">
+          Cancle
+        </button>
+      </form>
+    </dialog>
     <div class="productsSelect">
       <div class="selects">
         <input
@@ -175,7 +225,7 @@
           <div class="category-check">
             <div class="form-check">
               <input
-                class="form-check-input"
+                class="form-check-input create-form-check-input"
                 type="radio"
                 name="flexRadioDefault"
                 id="car-check"
@@ -185,7 +235,7 @@
             </div>
             <div class="form-check">
               <input
-                class="form-check-input"
+                class="form-check-input create-form-check-input"
                 type="radio"
                 name="flexRadioDefault"
                 id="food-check"
@@ -194,7 +244,7 @@
             </div>
             <div class="form-check">
               <input
-                class="form-check-input"
+                class="form-check-input create-form-check-input"
                 type="radio"
                 name="flexRadioDefault"
                 id="book-check"

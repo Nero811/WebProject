@@ -5,6 +5,40 @@
 body {
   height: 1000px;
   background-color: antiquewhite;
+  position: relative;
+}
+body nav.navbar {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  z-index: 10;
+}
+body nav.navbar #navbarSupportedContent #navUl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body nav.navbar #navbarSupportedContent #navUl #nav-productsSelect {
+  margin-left: 750px;
+}
+body div.users {
+  display: flex;
+}
+body div.users .btn-outline-info {
+  margin-right: 0.5rem;
+  padding-top: 0.015rem;
+  padding-bottom: 0.015rem;
+}
+body div.user-login {
+  position: relative;
+  z-index: 10;
+}
+body #user-login-Modal {
+  width: 50rem;
+  height: 50rem;
+}
+body #user-login-Modal #cancle {
+  background-color: red;
 }
 body div.productsSelect {
   top: 70px;
@@ -57,20 +91,6 @@ body div.productsSelect div.items div.accordion ul.pagination {
 body div.productsSelect div.items div.accordion table {
   word-wrap: break-word;
   table-layout: fixed;
-}
-body nav.navbar {
-  width: 100%;
-  position: fixed;
-  display: flex;
-  z-index: 10;
-}
-body nav.navbar #navbarSupportedContent #navUl {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-body nav.navbar #navbarSupportedContent #navUl #nav-productsSelect {
-  margin-left: 750px;
 }
 body div.createProduct {
   top: 70px;
