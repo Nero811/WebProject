@@ -49,6 +49,14 @@ body {
     }
   }
 
+  #user-registry-Modal {
+    width: 50rem;
+    height: 50rem;
+    #cancle-registry {
+      background-color: red;
+    }
+  }
+
   div.productsSelect {
     top: 70px;
     width: 100%;

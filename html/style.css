@@ -40,6 +40,13 @@ body #user-login-Modal {
 body #user-login-Modal #cancle {
   background-color: red;
 }
+body #user-registry-Modal {
+  width: 50rem;
+  height: 50rem;
+}
+body #user-registry-Modal #cancle-registry {
+  background-color: red;
+}
 body div.productsSelect {
   top: 70px;
   width: 100%;
