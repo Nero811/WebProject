@@ -10,5 +10,6 @@ public interface ProductDao {
     Page<Product> getProducts(ProductRequestParameter productRequestParameter);
     Integer createNewProduct(ProductRequest productRequest);
     Integer updateProduct(Integer productId, ProductRequest productRequest);
+    void updateProductStock(Integer stock, Integer productId);
     void deleteProduct(Integer productId);
 }
