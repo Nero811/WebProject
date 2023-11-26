@@ -8,6 +8,7 @@ import com.example.myspring.Model.Order;
 import com.example.myspring.Model.OrderItem;
 import com.example.myspring.Model.Product;
 import com.example.myspring.Service.OrderService;
+import com.example.myspring.Util.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,18 +79,43 @@ public class OrderServiceImpl implements OrderService {
 
         Order order = orderDao.createOrder(userId, totalAmount);
 
-        List<OrderItem> orderItemList = new ArrayList<>();
-
         // 使用 forloop 效率較低，可以使用batchUpdate()效率較高
         for (int i = 0 ; i < productList.size() ; i++) {
              orderDao.createOrderItems(order.getOrderId(), productList.get(i), buyItemList.get(i).getQuantity());
-             OrderItem orderItem = orderDao.getOrderItemById(order.getOrderId());
-             // 串建orderItemList
-             orderItemList.add(orderItem);
         }
 
-        order.setOrderItemList(orderItemList);
+        // 串建orderItemList
+        List<OrderItem> orderItemLists = orderDao.getOrderItemById(order.getOrderId());
+
+        order.setOrderItemList(orderItemLists);
 
         return order;
+    }
+
+    @Override
+    public Page<Order> getOrders(Integer userId, Integer limit, Integer offset) {
+
+        // 確認 user 是否存在
+        if (userDao.getUserById(userId) == null) {
+            log.warn("使用者不存在");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+
+        Page<Order> page = new Page<>();
+        // 取得所有訂單
+        List<Order> orders = orderDao.getOrdersByUserId(userId, limit, offset);
+
+        page.setResult(orders);
+        // 創建orderItemLists
+        for (Order order : page.getResult()) {
+            List<OrderItem> orderItemLists = orderDao.getOrderItemById(order.getOrderId());
+            order.setOrderItemList(orderItemLists);
+        }
+
+        page.setLimit(limit);
+        page.setOffset(offset);
+        page.setTotal(orders.size());
+
+        return page;
     }
 }

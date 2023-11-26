@@ -5,6 +5,7 @@ import com.example.myspring.Dao.ProductDao;
 import com.example.myspring.Model.Order;
 import com.example.myspring.Model.OrderItem;
 import com.example.myspring.Model.Product;
+import com.example.myspring.Util.Page;
 import com.example.myspring.rowmapper.OrderItemRowMapper;
 import com.example.myspring.rowmapper.OrderRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,30 @@ public class OrderDaoImpl implements OrderDao {
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Override
+    public List<Order> getOrdersByUserId(Integer userId, Integer limit, Integer offset) {
+        String sql = "SELECT order_id, user_id, total_amount, created_date, last_modified_date FROM `order` WHERE 1=1 " +
+                "AND user_id = :userId";
+
+        // 依創建日期排序
+        sql += " ORDER BY created_date DESC";
+
+        sql += " LIMIT :limit OFFSET :offset";
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("userId", userId);
+        map.put("limit", limit);
+        map.put("offset", offset);
+
+        List<Order> orders = namedParameterJdbcTemplate.query(sql, map, new OrderRowMapper());
+
+        if (orders.size() > 0) {
+            return orders;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
     public Order getOrderByOrderId(int orderId) {
 
         String sql = "SELECT order_id, user_id, total_amount, created_date, last_modified_date " +
@@ -48,7 +73,7 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public OrderItem getOrderItemById(int orderId) {
+    public List<OrderItem> getOrderItemById(int orderId) {
 
         String sql = "SELECT o.order_item_id, o.order_id, o.product_id, o.quantity, o.amount, p.product_name, p.image_url " +
                 "FROM order_item AS o LEFT JOIN product AS p " +
@@ -61,7 +86,7 @@ public class OrderDaoImpl implements OrderDao {
         List<OrderItem> orderItems = namedParameterJdbcTemplate.query(sql, map, new OrderItemRowMapper());
 
         if (orderItems.size() > 0) {
-            return orderItems.get(0);
+            return orderItems;
         } else {
             return null;
         }
