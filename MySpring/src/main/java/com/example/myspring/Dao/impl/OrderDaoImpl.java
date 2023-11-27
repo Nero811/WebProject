@@ -5,7 +5,6 @@ import com.example.myspring.Dao.ProductDao;
 import com.example.myspring.Model.Order;
 import com.example.myspring.Model.OrderItem;
 import com.example.myspring.Model.Product;
-import com.example.myspring.Util.Page;
 import com.example.myspring.rowmapper.OrderItemRowMapper;
 import com.example.myspring.rowmapper.OrderRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,11 +45,7 @@ public class OrderDaoImpl implements OrderDao {
 
         List<Order> orders = namedParameterJdbcTemplate.query(sql, map, new OrderRowMapper());
 
-        if (orders.size() > 0) {
-            return orders;
-        } else {
-            return null;
-        }
+        return orders;
     }
 
     @Override

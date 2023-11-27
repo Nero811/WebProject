@@ -46,7 +46,7 @@ public class OrderServiceImpl implements OrderService {
 
             if (product == null) {
                 log.warn("商品 {} 不存在", buyItemList.get(i).getProductId());
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND);
             }
 
             int quantity = buyItemList.get(i).getQuantity();
@@ -107,14 +107,20 @@ public class OrderServiceImpl implements OrderService {
 
         page.setResult(orders);
         // 創建orderItemLists
-        for (Order order : page.getResult()) {
-            List<OrderItem> orderItemLists = orderDao.getOrderItemById(order.getOrderId());
-            order.setOrderItemList(orderItemLists);
+        if (orders.size() > 0) {
+            for (Order order : page.getResult()) {
+                List<OrderItem> orderItemLists = orderDao.getOrderItemById(order.getOrderId());
+                order.setOrderItemList(orderItemLists);
+            }
         }
 
         page.setLimit(limit);
         page.setOffset(offset);
-        page.setTotal(orders.size());
+        if (orders == null) {
+            page.setTotal(0);
+        } else {
+            page.setTotal(orders.size());
+        }
 
         return page;
     }
