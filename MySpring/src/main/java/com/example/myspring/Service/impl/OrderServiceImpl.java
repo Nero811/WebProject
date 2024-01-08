@@ -1,14 +1,15 @@
 package com.example.myspring.Service.impl;
 
-import com.example.myspring.Dao.OrderDao;
-import com.example.myspring.Dao.ProductDao;
-import com.example.myspring.Dao.UserDao;
 import com.example.myspring.Dto.OrderRequest;
 import com.example.myspring.Model.Order;
 import com.example.myspring.Model.OrderItem;
 import com.example.myspring.Model.Product;
 import com.example.myspring.Service.OrderService;
-import com.example.myspring.Util.Page;
+import com.example.myspring.Util.Pages;
+import com.example.myspring.Dao.OrderDao;
+import com.example.myspring.Dao.ProductDao;
+import com.example.myspring.Dao.UserDao;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,7 +94,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Page<Order> getOrders(Integer userId, Integer limit, Integer offset) {
+    public Pages<Order> getOrders(Integer userId, Integer limit, Integer offset) {
 
         // 確認 user 是否存在
         if (userDao.getUserById(userId) == null) {
@@ -101,7 +102,7 @@ public class OrderServiceImpl implements OrderService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
 
-        Page<Order> page = new Page<>();
+        Pages<Order> page = new Pages<>();
         // 取得所有訂單
         List<Order> orders = orderDao.getOrdersByUserId(userId, limit, offset);
 
@@ -116,11 +117,10 @@ public class OrderServiceImpl implements OrderService {
 
         page.setLimit(limit);
         page.setOffset(offset);
-        if (orders == null) {
-            page.setTotal(0);
-        } else {
-            page.setTotal(orders.size());
-        }
+        page.setTotal(0);
+        if (orders != null) {
+        	page.setTotal(orders.size());
+        } 
 
         return page;
     }

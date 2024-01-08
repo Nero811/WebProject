@@ -5,7 +5,8 @@ import com.example.myspring.Dto.ProductRequest;
 import com.example.myspring.Dto.ProductRequestParameter;
 import com.example.myspring.Model.Product;
 import com.example.myspring.Service.ProductService;
-import com.example.myspring.Util.Page;
+import com.example.myspring.Util.Pages;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,10 +35,10 @@ public class ProductController {
     }
 
     @GetMapping("/products")                            // 條件搜尋
-    public ResponseEntity<Page<Product>> getProducts(@RequestParam(required = false) ProductCategory category,
+    public ResponseEntity<Pages<Product>> getProducts(@RequestParam(required = false, defaultValue = "FOOD") ProductCategory category,
                                                      @RequestParam(required = false) String search,
                                                      // 排序
-                                                     @RequestParam(defaultValue = "created_date") String order,
+                                                     @RequestParam(defaultValue = "createDate") String order,
                                                      @RequestParam(defaultValue = "DESC") String sort,
                                                      // 分頁
                                                      @RequestParam(defaultValue = "5") @Max(1000) @Min(5) Integer limit,

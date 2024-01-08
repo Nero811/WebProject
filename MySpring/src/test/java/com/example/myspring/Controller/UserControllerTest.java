@@ -1,8 +1,8 @@
 package com.example.myspring.Controller;
 
-import com.example.myspring.Dao.UserDao;
 import com.example.myspring.Dto.UserRequest;
 import com.example.myspring.Model.User;
+import com.example.myspring.dao.UserDao;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

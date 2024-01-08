@@ -1,11 +1,8 @@
 package com.example.myspring.Dao;
 
-import com.example.myspring.Dto.OrderRequest;
 import com.example.myspring.Model.Order;
 import com.example.myspring.Model.OrderItem;
 import com.example.myspring.Model.Product;
-import com.example.myspring.Util.Page;
-
 import java.util.List;
 
 public interface OrderDao {

@@ -1,10 +1,10 @@
 package com.example.myspring.Dao.impl;
 
-import com.example.myspring.Dao.OrderDao;
-import com.example.myspring.Dao.ProductDao;
 import com.example.myspring.Model.Order;
 import com.example.myspring.Model.OrderItem;
 import com.example.myspring.Model.Product;
+import com.example.myspring.Dao.OrderDao;
+import com.example.myspring.Dao.ProductDao;
 import com.example.myspring.rowmapper.OrderItemRowMapper;
 import com.example.myspring.rowmapper.OrderRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;

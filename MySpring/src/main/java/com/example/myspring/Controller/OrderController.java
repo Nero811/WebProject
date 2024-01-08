@@ -3,7 +3,8 @@ package com.example.myspring.Controller;
 import com.example.myspring.Dto.CreateOrderRequest;
 import com.example.myspring.Model.Order;
 import com.example.myspring.Service.OrderService;
-import com.example.myspring.Util.Page;
+import com.example.myspring.Util.Pages;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class OrderController {
 
     @Autowired
     private OrderService orderService;
-
+    
     @PostMapping("/users/{userId}/orders")
     public ResponseEntity<Order> createOrder(@PathVariable Integer userId,
                                              @RequestBody @Valid CreateOrderRequest createOrderRequest) {
@@ -27,10 +28,10 @@ public class OrderController {
     }
 
     @GetMapping("/users/{userId}/orders")
-    public ResponseEntity<Page<Order>> getOrders(@PathVariable Integer userId,
+    public ResponseEntity<Pages<Order>> getOrders(@PathVariable Integer userId,
                                           @RequestParam(defaultValue = "5") @Max(100) @Min(0) Integer limit,
                                           @RequestParam(defaultValue = "0") @Min(0) Integer offset) {
-        Page<Order> page = orderService.getOrders(userId, limit, offset);
+        Pages<Order> page = orderService.getOrders(userId, limit, offset);
 
         return ResponseEntity.status(HttpStatus.OK).body(page);
     }

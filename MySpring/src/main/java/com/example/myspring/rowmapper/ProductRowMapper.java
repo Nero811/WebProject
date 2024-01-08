@@ -2,6 +2,7 @@ package com.example.myspring.rowmapper;
 
 import com.example.myspring.Constant.ProductCategory;
 import com.example.myspring.Model.Product;
+
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

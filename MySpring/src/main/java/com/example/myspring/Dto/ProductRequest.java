@@ -1,8 +1,8 @@
 package com.example.myspring.Dto;
 
-import com.example.myspring.Constant.ProductCategory;
-
 import javax.validation.constraints.NotNull;
+
+import com.example.myspring.Constant.ProductCategory;
 
 
 public class ProductRequest {

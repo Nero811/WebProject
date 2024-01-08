@@ -1,9 +1,14 @@
 package com.example.myspring.Model;
 
-import com.example.myspring.Constant.ProductCategory;
-
 import java.util.Date;
 
+import com.example.myspring.Constant.ProductCategory;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
     private Integer productId;
     private String productName;

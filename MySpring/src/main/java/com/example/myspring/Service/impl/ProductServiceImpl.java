@@ -1,11 +1,12 @@
 package com.example.myspring.Service.impl;
 
-import com.example.myspring.Dao.ProductDao;
 import com.example.myspring.Dto.ProductRequest;
 import com.example.myspring.Dto.ProductRequestParameter;
 import com.example.myspring.Model.Product;
 import com.example.myspring.Service.ProductService;
-import com.example.myspring.Util.Page;
+import com.example.myspring.Util.Pages;
+import com.example.myspring.Dao.ProductDao;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +21,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Page<Product> getProducts(ProductRequestParameter productRequestParameter) {
+    public Pages<Product> getProducts(ProductRequestParameter productRequestParameter) {
         return productDao.getProducts(productRequestParameter);
     }
 
